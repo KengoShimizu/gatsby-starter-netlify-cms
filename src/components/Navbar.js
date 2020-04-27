@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import qiita from '../img/qiita-icon.png'
 
 const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      active: false,
+      itemActive: window.location.pathname.slice(1) ? window.location.pathname.slice(1) : 'portfolio',
+      burgerActive: false,
       navBarActiveClass: '',
     }
   }
@@ -16,12 +17,12 @@ const Navbar = class extends React.Component {
     // toggle the active boolean in the state
     this.setState(
       {
-        active: !this.state.active,
+        burgerActive: !this.state.burgerActive,
       },
       // after state has been updated,
       () => {
         // set the class in state for the navbar accordingly
-        this.state.active
+        this.state.burgerActive
           ? this.setState({
               navBarActiveClass: 'is-active',
             })
@@ -41,8 +42,12 @@ const Navbar = class extends React.Component {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+            <Link to="/"
+                  className={this.state.itemActive === 'portfolio'
+                            ? `navbar-item active`
+                            : `navbar-item`}
+                  title="Logo">
+              PortFolio
             </Link>
             {/* Hamburger menu */}
             <div
@@ -60,31 +65,54 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
+              <Link
+                className={this.state.itemActive === 'blog'
+                          ? `navbar-item active`
+                          : `navbar-item`}
+                to="/blog">
                 Blog
               </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
+              <Link
+                className={this.state.itemActive === 'github'
+                          ? `navbar-item active`
+                          : `navbar-item`}
+                to="/github">
+                Github
               </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
+              <Link
+                className={this.state.itemActive === 'qiita'
+                          ? `navbar-item active`
+                          : `navbar-item`}
+                to="/qiita">
+                Qiita
+              </Link>
+              <Link
+                className={this.state.itemActive === 'contact'
+                          ? `navbar-item active`
+                          : `navbar-item`}
+                to="/contact">
+                Contact
               </Link>
             </div>
             <div className="navbar-end has-text-centered">
               <a
                 className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
+                href="https://github.com/KengoShimizu"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <span className="icon">
                   <img src={github} alt="Github" />
+                </span>
+              </a>
+              <a
+                className="navbar-item"
+                href="https://qiita.com/KengoShimizu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <img src={qiita} alt="Qiita" />
                 </span>
               </a>
             </div>

@@ -5,15 +5,15 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
+import TopNavbar from '../components/TopNavbar'
 
 export const IndexPageTemplate = ({
   image,
   title,
   heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
+  profile,
+  skills,
+  works,
 }) => (
   <div>
     <div
@@ -26,6 +26,7 @@ export const IndexPageTemplate = ({
         backgroundAttachment: `fixed`,
       }}
     >
+
       <div
         style={{
           display: 'flex',
@@ -39,9 +40,6 @@ export const IndexPageTemplate = ({
         <h1
           className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
           style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
             color: 'white',
             lineHeight: '1',
             padding: '0.25em',
@@ -49,21 +47,9 @@ export const IndexPageTemplate = ({
         >
           {title}
         </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
       </div>
     </div>
+    <TopNavbar />
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
@@ -72,37 +58,37 @@ export const IndexPageTemplate = ({
               <div className="content">
                 <div className="content">
                   <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
+                    <h1 className="title" id="profile" style={{margin: '0 auto 30px'}}>{profile.title}</h1>
+                  </div>
+                  <div className="columns">
+                    <div className="column is-6 has-text-centered">
+                      <div
+                        className="margin-top-0"
+                        style={{
+                          backgroundImage: `url(${
+                            !!profile.image.childImageSharp ? profile.image.childImageSharp.fluid.src : profile.image
+                          })`,
+                          backgroundPosition: `top left`,
+                          backgroundRepeat: 'no-repeat',
+                          width: '300px',
+                          height: '300px',
+                          borderRadius: '50%',
+                          margin: '0 auto'
+                        }}
+                      />
+                    </div>
+                    <div className="column is-6">
+                      <div className="tile">
+                        <h3 className="subtitle">はじめまして。現在、神戸大学大学院2年のけんご（<a href="https://twitter.com/kengoPman" >@kengoPman</a>）と申します。
+                        <br/>{profile.description1}<br/>{profile.description2}</h3>
+                      </div>
+                    </div>
                   </div>
                   <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                    <h1 className="title" id="skills" style={{margin: '0 auto 30px'}}>{skills.title}</h1>
                   </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
+                  <div className="tile">
+                    <h1 className="title" id="works" style={{margin: '0 auto 30px'}}>{works.title}</h1>
                   </div>
                 </div>
               </div>
@@ -119,11 +105,9 @@ IndexPageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+  profile: PropTypes.object,
+  skills: PropTypes.object,
+  works: PropTypes.object,
 }
 
 const IndexPage = ({ data }) => {
@@ -136,9 +120,9 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        profile={frontmatter.profile}
+        skills={frontmatter.skills}
+        works={frontmatter.works}
       />
     </Layout>
   )
@@ -167,25 +151,23 @@ export const pageQuery = graphql`
           }
         }
         heading
-        subheading
-        mainpitch {
+        profile {
           title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
+          description1
+          description2
+          image {
+            childImageSharp {
+              fluid(maxWidth: 500, quality: 100) {
+                ...GatsbyImageSharpFluid
               }
             }
-            text
           }
-          heading
-          description
+        }
+        skills {
+          title
+        }
+        works {
+          title
         }
       }
     }

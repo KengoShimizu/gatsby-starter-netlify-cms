@@ -1,12 +1,12 @@
 @import "~bulma/sass/utilities/initial-variables"
 
 // Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
-$kaldi-red-invert: #fff
+// Kaldi logo brand color: #005bff
+$kaldi-blue: #005bff
+$kaldi-blue-invert: #fff
 
-$primary: $kaldi-red
-$primary-invert: $kaldi-red-invert
+$primary: $kaldi-blue
+$primary-invert: $kaldi-blue-invert
 $body-color: #333
 $black: #2b2523
 
@@ -42,6 +42,28 @@ $black: #2b2523
   justify-content: center
   align-items: center
 
+// Helper Classes
+.full-width-image-container-blur
+  height: 400px !important
+  display: flex
+  align-items: center
+  justify-content: center
+  background-size: cover
+  position: relative
+  z-index: 0
+  overflow: hidden
+  height: 100%
+  &:before
+    content: ''
+    background: inherit
+    filter: blur(2px)
+    position: absolute
+    top: -5px
+    left: -5px
+    right: -5px
+    bottom: -5px
+    z-index: -1
+
 .full-width-image
     width: 100vw
     height: 400px
@@ -61,7 +83,7 @@ $black: #2b2523
     border-radius: .25rem
     text-decoration: none
     font-weight: 700
-    color: #CC3700
+    color: #005bff
     text-align: center
     -webkit-box-shadow: inset 0 0 0 2px #CC3700
     box-shadow: inset 0 0 0 2px #f40
@@ -88,9 +110,9 @@ footer.footer
 $menu-item-color: $white-ter
 $menu-item-hover-color: $black !important
 $menu-item-hover-background-color: $black
-$menu-item-active-color: $kaldi-red-invert
-$menu-item-active-background-color:	$kaldi-red-invert
-$menu-list-border-left: 1px solid $kaldi-red-invert
+$menu-item-active-color: $kaldi-blue-invert
+$menu-item-active-background-color:	$kaldi-blue-invert
+$menu-list-border-left: 1px solid $kaldi-blue-invert
 $menu-label-color: $white-ter
 
 
@@ -114,13 +136,42 @@ $menu-label-color: $white-ter
 
 // blog roll
 .blog-list-item.is-featured
-  background-color: #d6400033;
+  background-color: #d6400033
 .blog-list-item header
-  display: flex;
-  margin-bottom: 1em;
+  display: flex
+  margin-bottom: 1em
 .blog-list-item .featured-thumbnail
-  flex-basis: 35%;
-  margin: 0 1.5em 0 0;
+  flex-basis: 35%
+  margin: 0 1.5em 0 0
+
+
+
+//ここからカスタマイズ
+.active
+  border-bottom: solid 5px #005bff
+  color: #005bff !important
+
+.topnavbar
+  margin-top: 30px
+
+.topnavbar-item
+  color: #4a4a4a
+  padding: 0.5rem 1.75rem
+  line-height: 1.5
+  border-bottom: solid #4a4a4a
+  &:hover
+    color: #3273dc
+    border-bottom: solid #3273dc
+
+.title
+  text-align: center
+  font-size: 5em !important
+
+.subtitle
+  font-size: 1.3em !important
+  line-height: 1.5 !important
+  font-weight: 540 !important
+//
 
 
 @import "~bulma"
@@ -129,12 +180,29 @@ $menu-label-color: $white-ter
 // responsiveness
 +tablet-only
   .blog-list-item .featured-thumbnail
-    flex-basis: 50%;
+    flex-basis: 50%
+  //ここからカスタマイズ
+  .active
+    border-bottom: solid 5px $kaldi-blue-invert
+    color: #005bff !important
+    background: rgba(0,91,255,0.1) !important
+  //
 
 +mobile
   .blog-list-item header
     display: block
   .blog-list-item .featured-thumbnail
-    text-align: center;
-    max-width: 70%;
-    margin: 0 0 1em;
+    text-align: center
+    max-width: 70%
+    margin: 0 0 1em
+
+  //ここからカスタマイズ
+  .active
+    border-bottom: solid 5px $kaldi-blue-invert
+    color: #005bff !important
+    background: rgba(0,91,255,0.1) !important
+
+  .subtitle
+    font-size: 1em !important
+
+  //
