@@ -146,7 +146,7 @@ $menu-label-color: $white-ter
 
 
 
-//ここからカスタマイズ
+//ここからカスタマイズ（PC）
 .active
   border-bottom: solid 5px #005bff
   color: #005bff !important
@@ -171,6 +171,141 @@ $menu-label-color: $white-ter
   font-size: 1.3em !important
   line-height: 1.5 !important
   font-weight: 540 !important
+
+.skillWrapper
+  padding-bottom: 60px
+  text-align: center
+  .skill
+    border-radius: 3px
+    background-color: whitesmoke
+    box-shadow: 0 0.5em 1em -0.125em rgba(43, 37, 35, 0.1), 0 0px 0 1px rgba(43, 37, 35, 0.02)
+    h3
+      padding: 20px
+      font-size: 30px
+      font-weight: bold
+    .flexWrapper:nth-of-type(1)
+      margin-bottom: 20px
+    .flexWrapper
+      padding-bottom: 20px
+      display: flex
+      .element
+        flex: 1
+        font-weight: bold
+      .starRate
+        color: dimgray
+        span
+          color: #bbbbbb
+.skillWrapperFlex
+  justify-content: space-between
+  display: flex
+  padding-bottom: 60px
+  text-align: center
+  .skill:nth-of-type(1)
+    float: left
+  .skill:nth-of-type(2)
+    float: right
+  .skill
+    width: 48%
+    border-radius: 3px
+    background-color: whitesmoke
+    box-shadow: 0 0.5em 1em -0.125em rgba(43, 37, 35, 0.1), 0 0px 0 1px rgba(43, 37, 35, 0.02)
+    h3
+      padding: 20px
+      font-size: 30px
+      font-weight: bold
+    .flexWrapper:nth-of-type(1)
+      margin-bottom: 20px
+    .flexWrapper
+      padding-bottom: 20px
+      display: flex
+      .element
+        flex: 1
+        font-weight: bold
+      .starRate
+        color: dimgray
+        span
+          color: #bbbbbb
+
+.skillsBarWrap
+  margin-bottom: 25px
+  width: 100%
+  position: relative
+  .skillsBar
+    height: 80px
+    width: 100%
+    margin: 0 auto
+    display: flex
+    position: relative
+    .svgs-disappear
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+      display: flex
+      justify-content: center
+    .svgs-appear
+      width: 100%
+      display: flex
+      justify-content: center
+    .svgWrapper
+      display: flex
+      justify-content: center
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      left: 0
+      .svgWrap
+        text-align: center
+        height: 100%
+        flex: 1
+        .svg
+          height: 100%
+          padding: 10px
+
+//アニメーション
+.set
+  animation-name: toggle
+  animation-duration: 3s
+  animation-timing-function: ease-out
+  animation-delay: 0s
+  animation-iteration-count: infinite
+  animation-direction: alternate
+  animation-play-state: running
+@keyframes toggle
+  0%
+    opacity: 0
+  10%
+    opacity: 1
+  90%
+    opacity: 1
+  100%
+    opacity: 0
+
+.workWrapperFlex
+  justify-content: space-between
+  display: flex
+  padding-bottom: 60px
+  text-align: center
+  .work
+    width: 48%
+    border-radius: 3px
+    background-color: whitesmoke
+    box-shadow: 0 0.5em 1em -0.125em rgba(43, 37, 35, 0.1), 0 0px 0 1px rgba(43, 37, 35, 0.02)
+    .worktitle
+      padding: 10px
+      display: block
+      font-size: 20px
+      font-weight: bold
+    .workimgWrap
+      padding: 0 20px
+      height: 400px
+      .work-img
+        height: 100%
+    .workdescri
+      padding: 20px 30px
+
 //
 
 
@@ -181,7 +316,7 @@ $menu-label-color: $white-ter
 +tablet-only
   .blog-list-item .featured-thumbnail
     flex-basis: 50%
-  //ここからカスタマイズ
+  //ここからカスタマイズ（タブレット）
   .active
     border-bottom: solid 5px $kaldi-blue-invert
     color: #005bff !important
@@ -196,7 +331,10 @@ $menu-label-color: $white-ter
     max-width: 70%
     margin: 0 0 1em
 
-  //ここからカスタマイズ
+  //ここからカスタマイズ（スマホ）
+  section
+    padding: 3rem 0.5rem !important
+
   .active
     border-bottom: solid 5px $kaldi-blue-invert
     color: #005bff !important
@@ -205,4 +343,47 @@ $menu-label-color: $white-ter
   .subtitle
     font-size: 1em !important
 
+  .skillWrapperFlex
+    display: block
+    padding-bottom: 60px
+    text-align: center
+    .skill:nth-of-type(1)
+      margin-bottom: 60px
+      float: inherit
+    .skill:nth-of-type(2)
+      float: inherit
+    .skill
+      width: 100%
+      border-radius: 3px
+      h3
+        padding: 20px
+        font-size: 30px
+        font-weight: bold
+      .flexWrapper:nth-of-type(1)
+        margin-bottom: 20px
+      .flexWrapper
+        padding-bottom: 20px
+        display: flex
+        .element
+          flex: 1
+          font-weight: bold
+        .starRate
+          color: dimgray
+          span
+            color: #bbbbbb
+
+  .workWrapperFlex
+    display: block
+    padding-bottom: 60px
+    text-align: center
+    .work:nth-of-type(1)
+      margin-bottom: 60px
+      float: inherit
+    .work:nth-of-type(2)
+      float: inherit
+    .work
+      width: 100%
+      border-radius: 3px
+      .workimgWrap
+        height: 200px
   //

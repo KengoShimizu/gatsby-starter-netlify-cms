@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'ポートフォリオ｜清水謙吾',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'はじめまして。現在、神戸大学大学院2年のけんご（@kengoPman）と申します。2018年8月から丸1年、群知能研究でカナダに留学をしました。海外の技術と出会った仲間に 刺激を受け、webエンジニアとして本格的に勉強を始め、現在は某気象会社のwebサービスの開発 をしています。来年4月からは某通信大手のエンジニアとして働きます！フロント・バックエンド共に当初はフルスクラッチで開発していましたが、現在ではよくNode.jsを 使ってサービス開発したりなどしています！',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
