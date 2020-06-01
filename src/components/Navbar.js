@@ -7,7 +7,7 @@ const Navbar = class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      itemActive: window.location.pathname.slice(1) ? window.location.pathname.slice(1) : 'portfolio',
+      itemActive: 'portfolio',
       burgerActive: false,
       navBarActiveClass: '',
     }
@@ -31,6 +31,12 @@ const Navbar = class extends React.Component {
             })
       }
     )
+  }
+
+  componentDidMount(){
+    this.setState({
+      itemActive: window.location.pathname.slice(1) ? window.location.pathname.slice(1) : 'portfolio'
+    })
   }
 
   render() {
