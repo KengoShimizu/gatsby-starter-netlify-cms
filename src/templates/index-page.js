@@ -134,7 +134,7 @@ const worklist = [
     {
       title: 'ポートフォリオ',
       imgsrc: Portfolio,
-      href: 'sample',
+      href: '/',
       descri: 'このページです。ReactJSのGatsbyを使って開発しています。'
     },
     {
