@@ -9,6 +9,7 @@ import TopNavbar from '../components/TopNavbar'
 import SkillBar from '../components/SkillBar'
 import Portfolio from '../img/works-imgs/portfolio.png'
 import Archer from '../img/works-imgs/archer.png'
+import Diguout from '../img/works-imgs/diguout.png'
 
 const skill_web = [
   {
@@ -142,6 +143,14 @@ const worklist = [
       imgsrc: Archer,
       href: 'https://archer-duo.herokuapp.com/',
       descri: 'スマホゲーム「アーチャー伝説」内のマルチプレイ募集用掲示板です。ReactJS、Expressで開発しDBにはMySQLを使用しherokuサーバでデプロイしています。月間PVは約10万にのぼります。'
+    }
+  ],
+  [
+    {
+      title: 'Youtuber発掘サービス',
+      imgsrc: Diguout,
+      href: 'https://dig-u-out.herokuapp.com/',
+      descri: 'Youtuberをジャンル毎に登録者数を絞りランダムでを発掘できるサービスです。Laravel、Reactで開発しています。'
     }
   ]
 ]
